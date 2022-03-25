@@ -22,5 +22,8 @@
   "homepage": "https://github.com/lscgogogo/gulu#readme",
   "dependencies": {
     "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
   }
 }
