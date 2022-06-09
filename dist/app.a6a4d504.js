@@ -12538,7 +12538,7 @@ require("./svg.js");
 //
 //
 var _default = {
-  name: "icon",
+  name: 'GuluIcon',
   props: ['name']
 };
 exports.default = _default;
@@ -12617,6 +12617,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
+  name: 'GuluButton',
   components: {
     'g-icon': _icon.default
   },
@@ -12733,6 +12734,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 var _default = {
+  name: 'GuluButtonGroup',
   mounted: function mounted() {
     var _iterator = _createForOfIteratorHelper(this.$el.children),
         _step;
