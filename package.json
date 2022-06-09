@@ -4,6 +4,7 @@
   "description": "这是一个UI框架",
   "main": "dist/index.js",
   "scripts": {
+    "start" : "npx parcel  index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/lscgogogo/gulu#readme",
   "dependencies": {
+    "svg.js": "^2.7.1",
     "vue": "^2.6.14",
     "vue-hot-reload-api": "^2.3.4"
   },
