@@ -5,6 +5,10 @@
       :disabled="disabled"
       :readonly="readonly"
       type="text"
+      @change="$emit('change',$event.target.value)"
+      @input="$emit('input',$event.target.value)"
+      @focus="$emit('focus',$event.target.value)"
+      @blur="$emit('blur',$event.target.value)"
     />
     <template>
       <icon name="error" class="icon-error"></icon>
