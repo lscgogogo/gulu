@@ -12949,8 +12949,31 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
-  name: 'GuluRow'
+  name: "GuluRow",
+  props: {
+    gutter: {
+      type: [Number, String]
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$children.forEach(function (vm) {
+      vm.gutter = _this.gutter;
+    });
+  },
+  computed: {
+    colStyle: function colStyle() {
+      return {
+        marginLeft: -this.gutter / 2 + 'px',
+        marginRight: -this.colStylegutter / 2 + 'px'
+      };
+    }
+  }
 };
 exports.default = _default;
         var $575a9f = exports.default || module.exports;
@@ -12965,7 +12988,12 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    { staticClass: "row", style: _vm.colStyle },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13013,11 +13041,36 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   name: "GuluCol",
   props: {
     span: {
       type: [String, Number]
+    },
+    offset: {
+      type: [String, Number]
+    }
+  },
+  data: function data() {
+    return {
+      gutter: 0
+    };
+  },
+  computed: {
+    colClass: function colClass() {
+      var span = this.span,
+          offset = this.offset;
+      return ["col-".concat(span), offset && "offset-".concat(offset)];
+    },
+    colStyle: function colStyle() {
+      return {
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px'
+      };
     }
   }
 };
@@ -13036,7 +13089,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "col", class: ["col-" + _vm.span] },
+    { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
     [_vm._t("default")],
     2
   )
