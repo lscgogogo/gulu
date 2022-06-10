@@ -27,7 +27,7 @@ export default {
   computed: {
     colClass() {
       let { span, offset } = this;
-      return [`col-${span}`, offset && `offset-${offset}`];
+      return [span &&`col-${span}`, offset && `offset-${offset}`];
     },
     colStyle(){
          return { paddingLeft: this.gutter / 2 + 'px', paddingRight: this.gutter / 2 + 'px' }
@@ -39,8 +39,7 @@ export default {
 <style lang="scss" scoped>
 .col {
   height: 100px;
-  width: 50%;
-  border: red 1px solid;
+//   border: red 1px solid;
 
   $class-prefix: col-;
   @for $n from 1 through 24 {

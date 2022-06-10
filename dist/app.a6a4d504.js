@@ -12949,14 +12949,17 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
 var _default = {
   name: "GuluRow",
   props: {
     gutter: {
       type: [Number, String]
+    },
+    position: {
+      type: String,
+      validator: function validator(value) {
+        return ["left", "right", "center"].includes(value);
+      }
     }
   },
   mounted: function mounted() {
@@ -12969,9 +12972,12 @@ var _default = {
   computed: {
     colStyle: function colStyle() {
       return {
-        marginLeft: -this.gutter / 2 + 'px',
-        marginRight: -this.colStylegutter / 2 + 'px'
+        marginLeft: -this.gutter / 2 + "px",
+        marginRight: -this.colStylegutter / 2 + "px"
       };
+    },
+    rowClass: function rowClass() {
+      return [this.align && "align-".concat(position)];
     }
   }
 };
@@ -12990,7 +12996,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row", style: _vm.colStyle },
+    { staticClass: "row", class: _vm.rowClass, style: _vm.colStyle },
     [_vm._t("default")],
     2
   )
@@ -13064,7 +13070,7 @@ var _default = {
     colClass: function colClass() {
       var span = this.span,
           offset = this.offset;
-      return ["col-".concat(span), offset && "offset-".concat(offset)];
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)];
     },
     colStyle: function colStyle() {
       return {
