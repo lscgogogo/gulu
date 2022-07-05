@@ -35,12 +35,12 @@
   </head>
   <body>
     <div id="app">
-        <g-row>
-            <g-col span="24" >
-                <div class="demo"></div>
-            </g-col>
-            
-        </g-row>
+        <g-upload acccept="image/*" method="POST" action="https://node-server-12.herokuapp.com/uploads" name="file">
+          <button>上传</button>
+          <template>
+            <div>只能上传 300kb 以内的 png,jpeg 文件</div>
+          </template>
+        </g-upload>
     </div>
     <style>
         .demo{
