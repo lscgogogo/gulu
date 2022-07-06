@@ -40,6 +40,7 @@ export default {
         xhr.open(this.method,this.action)
         xhr.onload = function(){
             img.src = `https://node-server-12.herokuapp.com/preview/${xhr.respone}`
+            console.log(xhr.response);
         }
         xhr.send(formData)
       });
