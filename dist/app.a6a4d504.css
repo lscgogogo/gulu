@@ -880,3 +880,7 @@
   margin-left: -300px;
 }
 
+.cascader[data-v-ddc782] {
+  border: 1px solid red;
+}
+

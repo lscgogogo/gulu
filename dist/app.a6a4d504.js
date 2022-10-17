@@ -13656,7 +13656,196 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/cascaderItem.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluCascaderItem',
+  props: {
+    sourceItem: {
+      type: Object
+    }
+  }
+};
+exports.default = _default;
+        var $4fc968 = exports.default || module.exports;
+      
+      if (typeof $4fc968 === 'function') {
+        $4fc968 = $4fc968.options;
+      }
+    
+        /* template */
+        Object.assign($4fc968, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm._v("\n  " + _vm._s(_vm.sourceItem.name) + "\n  "),
+      _vm._l(_vm.sourceItem.children, function (item, index) {
+        return _vm.sourceItem.children
+          ? _c("gulu-cascader-item", {
+              key: index,
+              attrs: { sourceItem: item },
+            })
+          : _vm._e()
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-4fc968",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$4fc968', $4fc968);
+          } else {
+            api.reload('$4fc968', $4fc968);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/cascader.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _cascaderItem = _interopRequireDefault(require("./cascaderItem.vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluCascader ',
+  props: {
+    source: {
+      type: Array
+    }
+  },
+  components: {
+    CascaderItem: _cascaderItem.default
+  }
+};
+exports.default = _default;
+        var $ddc782 = exports.default || module.exports;
+      
+      if (typeof $ddc782 === 'function') {
+        $ddc782 = $ddc782.options;
+      }
+    
+        /* template */
+        Object.assign($ddc782, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "cascader" }, [
+    _c("div", { staticClass: "trigger" }, [_vm._t("default")], 2),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "popover" },
+      _vm._l(_vm.source, function (item, index) {
+        return _c(
+          "div",
+          { key: index },
+          [_c("CascaderItem", { attrs: { sourceItem: item } })],
+          1
+        )
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-ddc782",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$ddc782', $ddc782);
+          } else {
+            api.reload('$ddc782', $ddc782);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"./cascaderItem.vue":"src/cascaderItem.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -13685,39 +13874,60 @@ var _footer = _interopRequireDefault(require("./footer.vue"));
 
 var _header = _interopRequireDefault(require("./header.vue"));
 
+var _cascader = _interopRequireDefault(require("./cascader.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_vue.default.component('g-button', _button.default);
-
-_vue.default.component('g-icon', _icon.default);
 
 _vue.default.component('g-button-group', _buttonGroup.default);
 
-_vue.default.component('g-input', _input.default);
+_vue.default.component('g-button', _button.default);
 
-_vue.default.component('g-row', _row.default);
+_vue.default.component('g-cascader', _cascader.default);
 
 _vue.default.component('g-col', _col.default);
 
-_vue.default.component('g-upload', _upload.default);
-
-_vue.default.component('g-layout', _layout.default);
-
 _vue.default.component('g-content', _content.default);
-
-_vue.default.component('g-sider', _sider.default);
 
 _vue.default.component('g-footer', _footer.default);
 
 _vue.default.component('g-header', _header.default);
 
+_vue.default.component('g-icon', _icon.default);
+
+_vue.default.component('g-input', _input.default);
+
+_vue.default.component('g-layout', _layout.default);
+
+_vue.default.component('g-row', _row.default);
+
+_vue.default.component('g-sider', _sider.default);
+
+_vue.default.component('g-upload', _upload.default);
+
 new _vue.default({
   el: '#app',
   data: {
-    loading1: false
+    loading1: false,
+    source: [{
+      name: 'Zhejiang',
+      children: [{
+        name: 'Hangzhou',
+        children: [{
+          name: 'West Lake'
+        }]
+      }]
+    }, {
+      name: 'Jiangsu',
+      children: [{
+        name: 'Nanjing',
+        children: [{
+          name: 'Zhong Hua Men'
+        }]
+      }]
+    }]
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./upload.vue":"src/upload.vue","./layout.vue":"src/layout.vue","./content.vue":"src/content.vue","./sider.vue":"src/sider.vue","./footer.vue":"src/footer.vue","./header.vue":"src/header.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./upload.vue":"src/upload.vue","./layout.vue":"src/layout.vue","./content.vue":"src/content.vue","./sider.vue":"src/sider.vue","./footer.vue":"src/footer.vue","./header.vue":"src/header.vue","./cascader.vue":"src/cascader.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
