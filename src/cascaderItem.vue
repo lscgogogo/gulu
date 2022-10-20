@@ -11,16 +11,14 @@
 </template>
 
 <script>
-export default{
-  name: 'GuluCascaderItem',
+export default {
+  name: "GuluCascaderItem",
   props: {
     sourceItem: {
       type: Object,
     },
   },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-    
-</style>
+<style lang="scss" scoped></style>

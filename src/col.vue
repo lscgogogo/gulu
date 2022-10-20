@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     colClass() {
-      let {span, offset, phone, ipad, narrowPc, pc, widePc} = this;
+      let { span, offset, phone, ipad, narrowPc, pc, widePc } = this;
       return [
         span && `col-${span}`,
         offset && `offset-${offset}`,

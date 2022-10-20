@@ -31,25 +31,24 @@ export default {
       };
     },
     rowClass() {
-         return [this.align && `align-${position}`]
+      return [this.align && `align-${position}`];
     },
   },
 };
 </script>
 
-
 <style lang="scss" scoped>
 .row {
   display: flex;
   flex-wrap: wrap;
-  .align-left{
-       justify-content: flex-start;
+  .align-left {
+    justify-content: flex-start;
   }
-  .align-right{
-       justify-content: flex-end;
+  .align-right {
+    justify-content: flex-end;
   }
-  .align-center{
-       justify-content: center;
+  .align-center {
+    justify-content: center;
   }
 }
 </style>

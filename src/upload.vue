@@ -3,7 +3,7 @@
     <div @click="onClickUpload" ref="trigger">
       <slot></slot>
     </div>
-    <div ref="temp" style="width:0;height:0;overflow:hidden"></div>
+    <div ref="temp" style="width: 0; height: 0; overflow: hidden"></div>
   </div>
 </template>
 
@@ -11,18 +11,18 @@
 export default {
   name: "GlueUpload",
   props: {
-    name:{
-        type:String,
-        required:true
+    name: {
+      type: String,
+      required: true,
     },
-    action:{
-        type:String,
-        required:true
+    action: {
+      type: String,
+      required: true,
     },
-    method:{
-        type:String,
-        default:'POST'
-    }
+    method: {
+      type: String,
+      default: "POST",
+    },
   },
   methods: {
     onClickUpload() {
@@ -35,14 +35,13 @@ export default {
         let formData = new FormData();
         formData.append(this.name, file);
 
-
         var xhr = new XMLHttpRequest();
-        xhr.open(this.method,this.action)
-        xhr.onload = function(){
-            img.src = `https://node-server-12.herokuapp.com/preview/${xhr.respone}`
-            console.log(xhr.response);
-        }
-        xhr.send(formData)
+        xhr.open(this.method, this.action);
+        xhr.onload = function () {
+          img.src = `https://node-server-12.herokuapp.com/preview/${xhr.respone}`;
+          console.log(xhr.response);
+        };
+        xhr.send(formData);
       });
       input.click();
     },
@@ -50,6 +49,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>>
-
+<style lang="scss" scoped></style>
+>

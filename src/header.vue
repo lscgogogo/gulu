@@ -6,9 +6,8 @@
 
 <script>
 export default {
-    name:'GuluHeader'
-}
+  name: "GuluHeader",
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

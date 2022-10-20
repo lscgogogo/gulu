@@ -2,53 +2,29 @@
   "name": "lscgogogo-test",
   "version": "0.0.2",
   "description": "这是一个UI框架",
-  "main": "dist/index.js",
+  "private": true,
   "scripts": {
-    "start": "npx parcel  index.html --no-cache",
-    "dev-test": "parcel watch test/* --no-cache & karma start",
-    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lscgogogo/gulu.git"
-  },
-  "keywords": [
-    "vue",
-    "ui"
-  ],
-  "author": "lsc",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lscgogogo/gulu/issues"
-  },
-  "homepage": "https://github.com/lscgogogo/gulu#readme",
   "dependencies": {
-    "svg.js": "^2.7.1",
-    "vue": "^2.6.14",
-    "vue-hot-reload-api": "^2.3.4"
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/component-compiler-utils": "^3.3.0",
-    "chai": "^4.3.6",
-    "chai-spies": "^1.0.0",
-    "karma": "^6.3.20",
-    "karma-chai": "^0.1.0",
-    "karma-chai-spies": "^0.1.4",
-    "karma-chrome-launcher": "^3.1.1",
-    "karma-mocha": "^2.0.1",
-    "karma-sinon-chai": "^2.0.2",
-    "mocha": "^10.0.0",
-    "node-sass": "^4.14.1",
-    "parcel-bundler": "^1.12.5",
-    "sass-loader": "^7.1.0",
-    "sinon": "^14.0.0",
-    "sinon-chai": "^3.7.0",
-    "vue-template-compiler": "^2.6.14",
-    "vuepress": "^1.9.7"
+    "@vue/cli-plugin-babel": "~4.5.13",
+    "@vue/cli-plugin-unit-mocha": "~4.5.13",
+    "@vue/cli-service": "~4.5.13",
+    "@vue/test-utils": "^1.0.3",
+    "chai": "^4.1.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
   },
-  "alias": {
-    "vue": "./node_modules/vue/dist/vue.common.js"
-  }
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

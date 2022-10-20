@@ -6,10 +6,8 @@
 
 <script>
 export default {
-    name:'GuluFooter'
-}
+  name: "GuluFooter",
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
