@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <g-cascader :source="source"></g-cascader>
+    <p>{{ selected }}</p>
+    <g-cascader
+      :source="source"
+      popover-height="200px"
+      :selected="selected"
+      @update:selected="selected = $event"
+    ></g-cascader>
   </div>
 </template>
 
@@ -9,6 +15,7 @@ import cascader from './cascader.vue'
 export default {
   data() {
     return {
+      selected: [],
       source: [
         {
           name: 'Zhejiang',

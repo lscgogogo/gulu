@@ -4,13 +4,19 @@
       <slot></slot>
     </div>
     <div class="popover" v-if="popoverVisible">
-      <cascader-items :items="source" />
+      <cascader-items
+        class="popover"
+        :items="source"
+        :height="popoverHeight"
+        :selected="selected"
+        @update:selected="onUpdateSelected"
+      />
     </div>
   </div>
 </template>
 
 <script>
- import CascaderItems from './cascader-items'
+import CascaderItems from './cascader-items'
 export default {
   name: 'GuluCascader',
   components: { CascaderItems },
@@ -22,6 +28,18 @@ export default {
   props: {
     source: {
       type: Array,
+    },
+    popoverHeight: {
+      type: String,
+    },
+    selected: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  methods: {
+    onUpdateSelected(newSelected) {
+      this.$emit('update:selected', newSelected)
     },
   },
 }
