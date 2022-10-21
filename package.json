@@ -1,4 +1,5 @@
 {
+  "base":"/gulu/",
   "name": "lscgogogo-test",
   "version": "0.0.2",
   "description": "这是一个UI框架",
