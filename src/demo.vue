@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <p>{{ selected }}</p>
     <g-cascader
       :source="source"
       popover-height="200px"
