@@ -4,7 +4,8 @@
       :source="source"
       popover-height="200px"
       :selected.sync="selected"
-    ></g-cascader>
+      @update:selected="xxx"
+    />
   </div>
 </template>
 
@@ -12,19 +13,32 @@
 import cascader from './cascader.vue'
 import db from './db'
 
-function ajax(parentId = 0){
-  return db.filter(item => item.parent_id == parentId)
+function ajax(parentId = 0) {
+  return new Promise((resolve, reject) => {
+    let result = db.filter((item) => item.parent_id == parentId)
+    resolve(result)
+  })
 }
-console.log(ajax());
+console.log(ajax())
 export default {
   data() {
     return {
       selected: [],
-      source: ajax()
+      source: [],
     }
   },
   components: {
     'g-cascader': cascader,
+  },
+  created() {
+    ajax().then((res) => {
+      this.source = res
+    })
+  },
+  methods: {
+    xxx() {
+      console.log(1)
+    },
   },
 }
 </script>
