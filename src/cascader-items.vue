@@ -66,6 +66,7 @@ export default {
     onClickLabel(item) {
       let copy = JSON.parse(JSON.stringify(this.selected))
       copy[this.level] = item
+      // 单项数据流(关键)
       copy.splice(this.level + 1)
       this.$emit('update:selected', copy)
     },
