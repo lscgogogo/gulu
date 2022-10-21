@@ -3,46 +3,24 @@
     <g-cascader
       :source="source"
       popover-height="200px"
-      :selected="selected"
-      @update:selected="selected = $event"
+      :selected.sync="selected"
     ></g-cascader>
   </div>
 </template>
 
 <script>
 import cascader from './cascader.vue'
+import db from './db'
+
+function ajax(parentId = 0){
+  return db.filter(item => item.parent_id == parentId)
+}
+console.log(ajax());
 export default {
   data() {
     return {
       selected: [],
-      source: [
-        {
-          name: 'Zhejiang',
-          children: [
-            {
-              name: 'Hangzhou',
-              children: [
-                {
-                  name: 'West Lake',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: 'Jiangsu',
-          children: [
-            {
-              name: 'Nanjing',
-              children: [
-                {
-                  name: 'Zhong Hua Men',
-                },
-              ],
-            },
-          ],
-        },
-      ],
+      source: ajax()
     }
   },
   components: {
