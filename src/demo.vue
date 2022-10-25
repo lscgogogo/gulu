@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <g-cascader
-      :source="source"
+      :source.sync="source"
       popover-height="200px"
       :selected.sync="selected"
-      @update:selected="xxx"
+      @update:selected="onUpdateSelected"
+      @update:source="onUpdateSource"
+      :load-data="loadData"
     />
   </div>
 </template>
@@ -36,8 +38,16 @@ export default {
     })
   },
   methods: {
-    xxx() {
-      console.log(1)
+    loadData({id}, updateSource) {
+      ajax(id).then((result) => {
+        updateSource(result)
+      })
+    },
+    onUpdateSelected() {
+      console.log('onUpdateSelected')
+    },
+    onUpdateSource() {
+      console.log('onUpdateSource')
     },
   },
 }
