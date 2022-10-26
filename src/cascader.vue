@@ -1,5 +1,5 @@
 <template>
-  <div class="cascader" ref="cascader" v-click-outside="close" >
+  <div class="cascader" ref="cascader" v-click-outside="close">
     <div class="trigger" @click="popoverVisible = !popoverVisible">
       {{ result || '&nbsp;' }}
     </div>
@@ -10,6 +10,7 @@
         :selected="selected"
         @update:selected="onUpdateSelected"
         :loadData="loadData"
+        :loading-item="loadingItem"
       />
     </div>
   </div>
@@ -26,6 +27,7 @@ export default {
   data() {
     return {
       popoverVisible: false,
+      loadingItem: {},
     }
   },
   props: {
@@ -97,14 +99,16 @@ export default {
         }
       }
       let updateSource = (result) => {
+        this.loadingItem = {}
         let copy = JSON.parse(JSON.stringify(this.source))
         let toUpdate = complex(copy, lastItem.id)
         toUpdate.children = result
         this.$emit('update:source', copy)
       }
-      if (!lastItem.isLeaf) {
+      if (!lastItem.isLeaf && this.loadData) {
         this.loadData && this.loadData(lastItem, updateSource) // 回调:把别人传给我的函数调用一下
         // 调回调的时候传一个函数,这个函数理论应该被调用
+        this.loadingItem = lastItem
       }
     },
   },
@@ -133,6 +137,7 @@ export default {
     left: 0;
     background: white;
     display: flex;
+    z-index: 1;
     @extend .box-shadow;
   }
 }

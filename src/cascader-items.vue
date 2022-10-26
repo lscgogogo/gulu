@@ -10,7 +10,14 @@
         <span class="name">
           {{ item.name }}
         </span>
-        <icon class="icon" v-if="rightArrowVisible(item)" name="right"></icon>
+        <span class="icon">
+          <template v-if="item.name === loadingItem.name">
+            <icon class="loading" name="loading" />
+          </template>
+          <template v-else>
+            <icon class="next" v-if="rightArrowVisible(item)" name="right" />
+          </template>
+        </span>
       </div>
     </div>
     <div class="right" v-if="rightItems">
@@ -20,6 +27,8 @@
         :height="height"
         :level="level + 1"
         :selected="selected"
+        :loadData="loadData"
+        :loading-item="loadingItem"
         @update:selected="onUpdateSelected"
       />
     </div>
@@ -48,9 +57,15 @@ export default {
       type: Number,
       default: 0,
     },
-    loadData:{
-      type:Function
-    }
+    loadData: {
+      type: Function,
+    },
+    loadingItem: {
+      loadingItem: {
+        type: Object,
+        default: () => [],
+      },
+    },
   },
   data() {
     return {
@@ -74,8 +89,8 @@ export default {
     },
   },
   methods: {
-    rightArrowVisible(item){
-     return this.loadData ? !item.isLeaf :item.children 
+    rightArrowVisible(item) {
+      return this.loadData ? !item.isLeaf : item.children
     },
     onClickLabel(item) {
       let copy = JSON.parse(JSON.stringify(this.selected))
@@ -113,17 +128,21 @@ export default {
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
-    &:hover{
-      margin-left: 1em;
-      user-select: none;
+    &:hover {
+      background: $grey;
     }
-    > .name{
+    > .name {
       margin-right: 1em;
       user-select: none;
     }
     .icon {
       margin-left: auto;
-      transform: scale(0.5);
+      .next {
+        transform: scale(0.5);
+      }
+      .loading {
+        animation: spin 2s infinite linear;
+      }
     }
   }
 }

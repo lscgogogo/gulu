@@ -14,7 +14,6 @@
 <script>
 import cascader from './cascader.vue'
 import db from './db'
-import { removeListener } from './click-outside'
 
 function ajax(parentId = 0) {
   return new Promise((resolve, reject) => {
@@ -28,7 +27,7 @@ function ajax(parentId = 0) {
         }
       })
       resolve(result)
-    }, 200)
+    }, 1000)
   })
 }
 console.log(ajax())
