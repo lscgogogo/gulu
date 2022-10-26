@@ -14,11 +14,21 @@
 <script>
 import cascader from './cascader.vue'
 import db from './db'
+import { removeListener } from './click-outside'
 
 function ajax(parentId = 0) {
   return new Promise((resolve, reject) => {
-    let result = db.filter((item) => item.parent_id == parentId)
-    resolve(result)
+    setTimeout(() => {
+      let result = db.filter((item) => item.parent_id == parentId)
+      result.forEach((node) => {
+        if (result.length > 0) {
+          node.isLeaf = false
+        } else {
+          node.isLeaf = true
+        }
+      })
+      resolve(result)
+    }, 200)
   })
 }
 console.log(ajax())
@@ -38,7 +48,7 @@ export default {
     })
   },
   methods: {
-    loadData({id}, updateSource) {
+    loadData({ id }, updateSource) {
       ajax(id).then((result) => {
         updateSource(result)
       })
