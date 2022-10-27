@@ -60,7 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 .col {
-  height: 100px;
+  height: 100%;
   //   border: red 1px solid;
 
   $class-prefix: col-;
