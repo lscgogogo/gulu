@@ -120,7 +120,6 @@ export default {
 .cascader {
   position: relative;
   display: inline-block;
-  border: 1px solid red;
   .trigger {
     height: $input-height;
     display: inline-flex;
